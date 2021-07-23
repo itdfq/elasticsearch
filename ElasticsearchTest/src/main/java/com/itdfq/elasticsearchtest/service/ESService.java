@@ -75,10 +75,23 @@ public class ESService {
     }
 
     /**
-     * 删除  通过id删除
+     * 通过id删除数据
+     * @param id
      */
     public void delete(String id){
         esBookRepository.deleteById(id);
     }
+
+    /**
+     * 更新数据
+     * @param movies
+     */
+    public void update(Movies movies){
+        esBookRepository.save(movies);
+    }
+
+
+
+
 
 }

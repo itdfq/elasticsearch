@@ -69,7 +69,7 @@ class ElasticsearchTestApplicationTests {
 //        删除id为2的数据
         ResponseEntity<String> exchange = restTemplate.exchange("http://localhost:9200/db/user/2", HttpMethod.DELETE, null, String.class);
         if (exchange.getStatusCodeValue() == 200) {
-            log.info("返回的数据：{}",exchange.getBody().toString());
+            log.info("返回的数据：{}",exchange.getBody());
         }
     }
 
@@ -140,12 +140,4 @@ class ElasticsearchTestApplicationTests {
      *       ]
      *     }
      */
-
-
-
-
-
-
-
-
 }

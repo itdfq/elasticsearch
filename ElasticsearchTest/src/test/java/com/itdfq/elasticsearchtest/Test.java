@@ -3,7 +3,6 @@ package com.itdfq.elasticsearchtest;
 import com.alibaba.fastjson.JSON;
 import com.itdfq.elasticsearchtest.pojo.Movies;
 import com.itdfq.elasticsearchtest.service.ESService;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,13 +14,15 @@ import java.util.List;
  * @Date 2021/7/22 15:27
  * @Blog: itdfq.com
  * @QQ: 909256107
- * @Description:
+ * @Description: SpringBoot 集成 Elasticsearch
  */
 @SpringBootTest
 @Slf4j
 class Test {
+
     @Autowired
     private ESService esService;
+
 
     @org.junit.jupiter.api.Test
     public void test1() {
@@ -66,8 +67,12 @@ class Test {
             log.info("删除成功");
         } catch (Exception e) {
             e.printStackTrace();
-
         }
+    }
+
+    @org.junit.jupiter.api.Test
+    public void test6(){
+        Movies movies = new Movies();
     }
 
 }
