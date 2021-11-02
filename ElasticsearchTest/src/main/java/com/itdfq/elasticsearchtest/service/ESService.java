@@ -33,7 +33,7 @@ public class ESService {
      *
      * @param movies
      */
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void insert(Movies movies) {
         log.info("插入数据：{}", movies);
         esBookRepository.save(movies);
@@ -67,31 +67,36 @@ public class ESService {
     /**
      * 条件查询
      * 自定义查询可以通过 SpringData  命名规则进行设置方法
+     *
      * @param movies
      * @return
      */
-    public List<Movies> findByTitleLike(Movies movies) {
-        return esBookRepository.findByTitleLike(movies.getTitle());
+    public List<Movies> findByTitleLike(String title) {
+        return esBookRepository.findByTitleLike(title);
     }
 
     /**
      * 通过id删除数据
+     *
      * @param id
      */
-    public void delete(String id){
+    public void delete(String id) {
         esBookRepository.deleteById(id);
     }
 
     /**
      * 更新数据
+     *
      * @param movies
      */
-    public void update(Movies movies){
+    public void update(Movies movies) {
         esBookRepository.save(movies);
     }
 
 
-
+    public List<Movies> findByCityLike(String city){
+        return esBookRepository.findByCityLike(city);
+    }
 
 
 }

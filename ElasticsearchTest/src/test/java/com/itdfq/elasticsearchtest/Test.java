@@ -33,7 +33,7 @@ class Test {
     @org.junit.jupiter.api.Test
     public void test2(){
         try {
-            esService.insert(new Movies("7","河南加油","ABC","2021"));
+            esService.insert(new Movies("8","123","ABC","2021","杭州"));
             log.info("插入成功");
         } catch (Exception e) {
             e.printStackTrace();
@@ -51,12 +51,11 @@ class Test {
 //    自定义查询 按照title进行like查询
     @org.junit.jupiter.api.Test
     public void test4(){
-        Movies movies = new Movies("123","Kill","123","1234");
-        List<Movies> byTitleLike = esService.findByTitleLike(movies);
+        List<Movies> byTitleLike = esService.findByTitleLike("123");
         for (Movies movies1 : byTitleLike) {
             log.info("查询出来的数据为：{}",movies1);
         }
-        log.info("查询出来的总数据为：{}",byTitleLike);
+        log.info("查询出来的总数据为：{}",byTitleLike.size());
     }
 
     //删除
@@ -72,7 +71,8 @@ class Test {
 
     @org.junit.jupiter.api.Test
     public void test6(){
-        Movies movies = new Movies();
+        List<Movies> cityLike = esService.findByCityLike("杭");
+        System.out.println(cityLike);
     }
 
 }

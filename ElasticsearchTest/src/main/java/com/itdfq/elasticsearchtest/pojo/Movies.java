@@ -29,4 +29,5 @@ public class Movies {
     private String director;
     @Field(index = false , type = FieldType.Text)
     private String year;
+    private String city;
 }
